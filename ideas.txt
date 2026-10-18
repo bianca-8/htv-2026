@@ -1,0 +1,10 @@
+What's the best model and use synthetic data to predict chronic homelessness
+ask for data if unsure, like ask u to provide, or use synthetic data
+
+Modeling how a disease (or piece of misinformation) spreads across different types of social networks (e.g., random graphs vs. scale-free networks)
+Runs a simulation of infection spreading across a graph and plots the infection peak and timeline.
+
+- graphs to show diff directions of stuff that might be related, and could help
+- papier theme
+- It should allow humans to add papers, like upload, previous stuff they have that the agent can build on
+- agnet makes a hyp on how the experiment might run, then thru research papers will discover more concrete ways and adjust it, then investigate the branches as normal

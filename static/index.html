@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Marginalia</title>
+  <link rel="preload" href="/static/fonts/cmu-serif-regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/static/app.css?v=14" />
+</head>
+<body>
+  <header class="mast">
+    <div>
+      <p class="kicker">Human–agent research</p>
+      <h1>Marginalia</h1>
+    </div>
+    <div class="mast-meta">
+      <p id="pill" class="pill">Idle</p>
+      <p id="detail" class="detail">Waiting for a direction.</p>
+      <button id="pause" type="button" disabled>Pause</button>
+    </div>
+  </header>
+
+  <main>
+    <article>
+      <form id="start" class="start">
+        <p class="lede">
+          A workspace for questions worth following.
+        </p>
+        <label for="saved-investigations">Saved investigations</label>
+        <select id="saved-investigations"><option>Loading saved investigations…</option></select>
+        <label for="direction">Research question</label>
+        <textarea id="direction" name="direction" rows="3"></textarea>
+        <div class="chips" id="direction-chips">
+          <button type="button" data-direction="Which training methods help a classifier catch rare events in tabular data without drowning in false alarms?">Rare events</button>
+          <button type="button" data-direction="Compare cost-sensitive learning and resampling for imbalanced fraud classification.">Fraud, cost-sensitive</button>
+          <button type="button" data-direction="What do recent papers say about calibration of neural networks?">Calibration only</button>
+        </div>
+        <details class="query-edit">
+          <summary>Edit the arXiv query</summary>
+          <p>Leave this empty and the agent will show you the query it built. Paste an arXiv query if you want that string sent as written.</p>
+          <input id="query" name="query" type="text" spellcheck="false" placeholder='(cat:cs.LG OR cat:stat.ML) AND all:imbalanced AND all:classification' />
+        </details>
+        <button type="submit" id="go">Begin the investigation</button>
+      </form>
+      <div id="desk"></div>
+    </article>
+
+    <aside>
+      <div class="margin-head">
+        <p class="kicker">The margin</p>
+        <h2>Notes that change the work</h2>
+      </div>
+      <div id="trail" class="trail"></div>
+      <form id="composer">
+        <label for="note">Write in the margin</label>
+        <textarea id="note" rows="3" placeholder="No synthetic rows. Or: rank by accuracy. Or: keep precision at or above 0.40."></textarea>
+        <div class="chips">
+          <button type="button" data-note="No synthetic rows. Do not invent minority samples.">No synthetic samples</button>
+          <button type="button" data-note="Do not undersample. Keep the majority rows.">Keep majority rows</button>
+          <button type="button" data-note="Rank by average precision.">Average precision</button>
+          <button type="button" data-note="Rank by accuracy.">Accuracy</button>
+          <button type="button" data-note="I need recall, but keep precision at or above 0.40.">Precision floor 0.40</button>
+        </div>
+        <button type="submit">Leave the note</button>
+        <label for="redirect">Or change the search</label>
+        <div class="redirect-row">
+          <input id="redirect" type="text" placeholder="Pivot toward threshold selection for imbalanced classification" />
+          <button type="button" id="redirect-go">Redirect</button>
+        </div>
+      </form>
+    </aside>
+  </main>
+  <script src="/static/vendor/solana-web3-1.98.4.js" defer></script>
+  <script src="/static/app.js?v=23" defer></script>
+  <script src="/static/publication.js?v=3" defer></script>
+</body>
+</html>

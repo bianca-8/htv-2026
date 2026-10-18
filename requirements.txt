@@ -1,0 +1,8 @@
+fastapi>=0.115
+uvicorn>=0.32
+scikit-learn>=1.5
+numpy>=2.0
+beautifulsoup4>=4.12
+certifi>=2024.8
+psycopg[binary]>=3.2,<4
+python-dotenv>=1.0,<2
