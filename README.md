@@ -117,3 +117,7 @@ tiger service list
 ```
 
 Choose an existing service in Tiger Console, or create one there and copy its connection details. Tiger CLI authentication manages cloud resources; the running application still needs the PostgreSQL URL and database password. The app does not invoke Tiger CLI, provision paid services, or expose database management to the research agent.
+
+## Deploy the demo
+
+See [deploy/README.md](deploy/README.md) for Ubuntu/Vultr setup, a single-worker systemd service, Caddy HTTPS with a demo password, firewall rules, and a real sandbox preflight. Deployment templates are prepared locally; no remote server has been configured by this change.

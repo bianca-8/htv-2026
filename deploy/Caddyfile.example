@@ -1,0 +1,10 @@
+# Replace both domain names and REPLACE_WITH_CADDY_PASSWORD_HASH before installing.
+# Generate a hash interactively with: caddy hash-password
+example.com, www.example.com {
+    basic_auth {
+        demo REPLACE_WITH_CADDY_PASSWORD_HASH
+    }
+    reverse_proxy 127.0.0.1:8000 {
+        flush_interval -1
+    }
+}

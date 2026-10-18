@@ -1,0 +1,24 @@
+[Unit]
+Description=Marginalia research demo
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=marginalia
+Group=marginalia
+WorkingDirectory=/opt/marginalia
+EnvironmentFile=/etc/marginalia.env
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/opt/marginalia/.venv/bin/uvicorn backend.main:app --host 127.0.0.1 --port 8000 --workers 1 --proxy-headers --forwarded-allow-ips=127.0.0.1
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=30
+UMask=0077
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/opt/marginalia/.cache /opt/marginalia/experiments
+
+[Install]
+WantedBy=multi-user.target
